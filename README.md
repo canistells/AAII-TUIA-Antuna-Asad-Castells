@@ -1,6 +1,3 @@
-# AAII-TUIA-Antuna-Asad-Castells
-Repositorio asociado a la materia Aprendizaje Automático II
-
 # Aprendizaje Automático II - Trabajos Prácticos
 
 - Antuña, Franco (A-4637/1)
