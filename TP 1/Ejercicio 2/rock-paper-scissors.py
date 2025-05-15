@@ -37,38 +37,39 @@ while cap.isOpened():
     result = hands.detect(image)
 
     if result.hand_landmarks:
-        # Tomamos landmarks de la primera mano detectada
-        landmarks = result.hand_landmarks[0]
+        for i in range(len(result.hand_landmarks)):
+            # Tomamos landmarks de la primera mano detectada
+            landmarks = result.hand_landmarks[i]
 
-        # Extraer x, y de cada landmark
-        landmark_array = []
-        xs, ys = [], []
-        for landmark in landmarks:
-            landmark_array.append(landmark.x)
-            landmark_array.append(landmark.y)
-            xs.append(landmark.x * frame.shape[1])  # frame.shape[1] = width
-            ys.append(landmark.y * frame.shape[0])  # frame.shape[0] = height
+            # Extraer x, y de cada landmark
+            landmark_array = []
+            xs, ys = [], []
+            for landmark in landmarks:
+                landmark_array.append(landmark.x)
+                landmark_array.append(landmark.y)
+                xs.append(landmark.x * frame.shape[1])  # frame.shape[1] = width
+                ys.append(landmark.y * frame.shape[0])  # frame.shape[0] = height
 
-        # Dibujar el bounding box alrededor de la mano
-        x_min, x_max = int(min(xs)), int(max(xs))
-        y_min, y_max = int(min(ys)), int(max(ys))
-        cv2.rectangle(frame, (x_min - 20, y_min - 20), (x_max + 20, y_max + 20), (0, 255, 0), 2)
+            # Dibujar el bounding box alrededor de la mano
+            x_min, x_max = int(min(xs)), int(max(xs))
+            y_min, y_max = int(min(ys)), int(max(ys))
+            cv2.rectangle(frame, (x_min - 20, y_min - 20), (x_max + 20, y_max + 20), (0, 255, 0), 2)
 
-        # Normalizar landmarks
-        landmark_array = np.array(landmark_array).reshape(1, -1)
+            # Normalizar landmarks
+            landmark_array = np.array(landmark_array).reshape(1, -1)
 
-        # Escalar segun el scaler
-        landmark_array = scaler.transform(landmark_array)
+            # Escalar segun el scaler
+            landmark_array = scaler.transform(landmark_array)
 
-        # Predecir
-        prediction = model.predict(landmark_array)
-        class_idx = np.argmax(prediction)
-        prob = np.max(prediction)
-        class_name = class_names[class_idx]
+            # Predecir
+            prediction = model.predict(landmark_array)
+            class_idx = np.argmax(prediction)
+            prob = np.max(prediction)
+            class_name = class_names[class_idx]
 
-        # Poner el texto
-        cv2.putText(frame, f'{class_name}, {prob:.2f}', (x_min - 20, y_min - 50),
-                    cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
+            # Poner el texto
+            cv2.putText(frame, f'{class_name}, {prob:.2f}', (x_min - 20, y_min - 50),
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 
     # Mostrar video
     cv2.imshow('Rock-Paper-Scissors Detection', frame)

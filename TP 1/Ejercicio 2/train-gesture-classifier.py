@@ -41,7 +41,7 @@ X_scaled = scaler.fit_transform(X)
 
 # Guardar el scaler
 os.makedirs(escalador_dir, exist_ok=True)
-scaler_path = os.path.join(escalador_dir, 'scaler_gpu.pkl')
+scaler_path = os.path.join(escalador_dir, 'scaler_gpu_2.pkl')
 joblib.dump(scaler, scaler_path)
 
 # Separar en training y validation sets
@@ -66,7 +66,7 @@ model.compile(
 )
 
 # Entrenar
-epochs = 2
+epochs = 30
 batch_size = 16
 
 history = model.fit(
@@ -78,7 +78,7 @@ history = model.fit(
 
 # Guardar el modelo
 os.makedirs(modelo_dir, exist_ok=True)
-model_path = os.path.join(modelo_dir, 'rps_model_gpu.h5')
+model_path = os.path.join(modelo_dir, 'rps_model_gpu_2.h5')
 model.save(model_path)
 print(f"Modelo entrenado y guardado como {model_path}")
 
