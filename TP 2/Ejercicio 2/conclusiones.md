@@ -28,7 +28,7 @@ Los mismos se descartan para el diseño de la Q-Table con el objetivo de reducir
 
 ### Características del Estado Procesadas y Discretizadas:
 
-
+<p align="center">Estado crudo → Tupla de 5 números enteros.</p>
 
 1. _¿Dónde está el pájaro verticalmente en la pantalla?_
 
@@ -71,3 +71,11 @@ Los mismos se descartan para el diseño de la Q-Table con el objetivo de reducir
 **Importancia:** Da una idea de cuán próximo está pájaro de la abertura entre caños, si un salto lo compromete y si hay tiempo suficiente de reacción.
 
 ### Ejemplo
+
+* "Pájaro un poco arriba en la pantalla" (Componente 7)
+* "Pájaro cayendo muy rápidamente" (Componente 10)
+* "Próxima cañería no muy lejos del pájaro" (Componente 8)
+* "Final de la cañería superior un poco arriba del centro de la pantalla" (Componente 7)
+* "Final de la cañería inferior al centro de la pantalla" (Componente 10)
+
+Esta combinación de respuestas simplificadas ((un_poco_arriba, muy_rápidamente, no_muy_lejos, un_poco_arriba, al_centro)) forma el estado discreto que el agente usa para buscar en su "libro de jugadas" (la Q-Table) cuál es la mejor acción a tomar (aletear o no aletear).
