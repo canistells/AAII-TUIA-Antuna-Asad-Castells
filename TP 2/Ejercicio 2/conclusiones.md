@@ -96,6 +96,8 @@ La implementación basada en un modelo de clasificación no arrojó métricas de
 
 Por otro lado, el modelo de regresión mostró un buen desempeño, con buenas métricas de entrenamiento (val_mse de aproximadamente 0.3).
 
+<p><img src="https://raw.githubusercontent.com/canistells/AAII-TUIA-Antuna-Asad-Castells/refs/heads/main/TP%202/Ejercicio%202/entrenamiento_resultados.png" alt="Métricas de Entrenamiento."></p> 
+
 La arquitectura de la red neuronal fue diseñada con una capa de entrada cuyo tamaño corresponde a la cantidad de estados de la Q-Table y una capa de salida con tantas neuronas como acciones posibles (dos, en este caso: volar/no volar). Además se implementaron capas intermedias. Esta configuración permitió que la red aprendiera a predecir los valores Q para cada acción dado un estado de entrada.
 
 ## Conclusiones
