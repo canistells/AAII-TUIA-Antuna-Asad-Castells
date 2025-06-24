@@ -86,7 +86,7 @@ El entrenamiento del Q-Agent requirió una discretización del espacio de estado
 
 La fase inicial de entrenamiento del Q-Agent fue lenta. Durante los primeros 2500 episodios, no se observaron mejoras significativas en el rendimiento del agente. Sin embargo, a partir de allí, la mejora de las métricas fue notoria. Esto indica que la Q-Table comenzó a converger efectivamente una vez que se exploró una porción suficiente del espacio de estados.
 
-El desempeño obtenido con el Q-Agent fue muy bueno, alcanzándose un promedio de 150 puntos en las pruebas. Por otro lado se observó lo siguiente: el agente tendía a perder la partida en situaciones que demandaban un ascenso vertical considerable. Esto podría deberse a que estas transiciones de estado no fueron exploradas o valoradas adecuadamente en la Q-Table.
+El desempeño obtenido con el Q-Agent fue muy bueno, alcanzándo puntajes de hasta de 175 puntos en las pruebas. Por otro lado se observó lo siguiente: el agente tendía a perder la partida en situaciones que demandaban un ascenso vertical considerable. Esto podría deberse a que estas transiciones de estado no fueron exploradas o valoradas adecuadamente en la Q-Table.
 
 El valor del hiperparámetro épsilon fue determinado mediante un proceso empírico de prueba y error. Valores muy altos de épsilon resultaban en una cantidad excesiva de acciones aleatorias. 
 
@@ -102,6 +102,8 @@ La arquitectura de la red neuronal fue diseñada con una capa de entrada cuyo ta
 
 ## Conclusiones
 
-Aunque el NN-Agent mostró un buen rendimiento general, los resultados obtenidos en las pruebas tan buenos como los alcanzados por el Q-Agent. Se observó que, en promedio, el NN-Agent obtuvo xx puntos, mientras que el Q-Agent logró yy puntos. Sin embargo, se observó que el Q-Agent tuvo rachas esporádicas de puntaje significativamente más alto que las observadas en el NN-Agent. Esto sugiere que, si bien el NN-Agent pudo aprender una política general, el Q-Agent podría haber logrado una optimización más fina en ciertos estados críticos o haber explorado combinaciones de estados-acción que la red neuronal no representó con la misma fidelidad.
+Aunque el NN-Agent mostró un buen rendimiento general, los resultados obtenidos en las pruebas no consiguieron ser tan buenos como los alcanzados por el Q-Agent. Se observó que, en promedio, el NN-Agent obtuvo 45 puntos, mientras que el Q-Agent logró 65 puntos (en unas 15 pruebas). Por otro lado, se observó que el Q-Agent tuvo rachas esporádicas de puntaje significativamente más alto que las observadas en el NN-Agent. Esto sugiere que, si bien el NN-Agent pudo aprender una política general, el Q-Agent podría haber logrado una optimización más fina en ciertos estados críticos o haber explorado combinaciones de estados-acción que la red neuronal no representó con la misma fidelidad.
+
+<p><img src="https://raw.githubusercontent.com/canistells/AAII-TUIA-Antuna-Asad-Castells/refs/heads/main/TP%202/Ejercicio%202/comparativa.png" alt="Comparativa de modelos."></p> 
 
 En cuanto al rendimiento, el Q-Agent mostró a una velocidad cercana a 30 FPS. En contraste, el NN-Agent presentó un rendimiento más lento, principalmente debido al costo computacional asociado al proceso de inferencia de la red neuronal en cada paso de tiempo.
