@@ -10,7 +10,7 @@
 
 ## Ingeniería de Características
 
-### Estado Crudo del Entorno:
+### Estado Crudo del Entorno
 
 * 'player y position': Posición Y del centro del pájaro.
 * 'players velocity': Velocidad Y actual del pájaro.
@@ -26,7 +26,7 @@ Si bien el juego incluye otros tres estados, referentes a dos cañerías adelant
 
 Los mismos se descartan para el diseño de la Q-Table con el objetivo de reducir la cantidad de estados posibles.
 
-### Características del Estado Procesadas y Discretizadas:
+### Características del Estado Procesadas y Discretizadas
 
 <p align="center">Estado crudo → Tupla de 5 números enteros.</p>
 
